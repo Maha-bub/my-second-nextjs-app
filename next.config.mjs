@@ -13,6 +13,14 @@ const nextConfig = {
         pathname: '/**',
         search: '',
       },
+      // https://images.unsplash.com/photo-1544117519-31a4b719223d
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
     ],
   },
 };
