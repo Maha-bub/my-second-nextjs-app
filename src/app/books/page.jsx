@@ -2,6 +2,9 @@ import BookCard from "../components/BookCard";
 
 const getBooks = async () => {
     const res = await fetch('http://localhost:5000/books')
+    if (!res.ok) {
+        throw new Error('Failed to load books.')
+    }
     return res.json();
 }
 const BookPage = async () => {
