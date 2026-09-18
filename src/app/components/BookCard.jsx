@@ -43,9 +43,9 @@ const BookCard = ({ book }) => {
                     <span className="text-2xl font-bold">
                         ${price}
                     </span>
-                    <button className="btn btn-primary">                        Buy Now                    </button>
+                    <button className="btn btn-primary">Buy Now</button>
                     <Link href={`/books/${id}`}>
-                        <button className="btn btn-primary">                        Buy Now                    </button>
+                        <button className="btn btn-primary">Show Details</button>
                     </Link>
                 </div>
             </div>
