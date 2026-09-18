@@ -2,6 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+export const generateStaticParams = async () => {
+    const res = await fetch('http://localhost:5000/books');
+    const books = await res.json()
+    return books.slice(0, 3).map(book => ({ bookId: books.id }))
+}
 const BookDetailPage = async ({ params }) => {
     const { bookId } = await params;
     const res = await fetch(`http://localhost:5000/books/${bookId}`)
