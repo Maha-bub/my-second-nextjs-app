@@ -2,14 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const BookCard = ({ book }) => {
-    const {id, name, author, price, category, rating, stock, image, description } = book
+const BookDetailPage = async ({ params }) => {
+    const { bookId } = await params;
+    const res = await fetch(`http://localhost:5000/books/${bookId}`)
+    const book = await res.json()
     return (
-        <div className="card card-border bg-base-100 shadow-sm">
+        <div className="card card-border bg-base-100 max-w-xl mx-auto shadow-sm">
             <figure className="bg-gray-100">
                 <Image
-                    src={image}
-                    alt={name}
+                    src={book.image}
+                    alt={book.name}
                     width={300}
                     height={300}
                     className="w-full h-64 object-cover"
@@ -20,37 +22,34 @@ const BookCard = ({ book }) => {
 
                 <div className="flex justify-between items-center">
                     <span className="badge badge-primary">
-                        {category}
+                        {book.category}
                     </span>
 
                     <span className="text-yellow-500 font-semibold">
-                        ⭐ {rating}
+                        ⭐ {book.rating}
                     </span>
                 </div>
 
                 <h2 className="card-title">
-                    Book Name: {name}
+                    Book Name: {book.name}
                 </h2>
                 <div>
-                    <span>Wrriten By:{author}</span>
+                    <span>Wrriten By:{book.author}</span>
                 </div>
 
                 <p className="text-sm text-gray-500">
-                    {description}
+                    {book.description}
                 </p>
 
                 <div className="card-actions justify-between items-center mt-4">
                     <span className="text-2xl font-bold">
-                        ${price}
+                        ${book.price}
                     </span>
-                    <button className="btn btn-primary">                        Buy Now                    </button>
-                    <Link href={`/books/${id}`}>
-                        <button className="btn btn-primary">                        Buy Now                    </button>
-                    </Link>
+                    <Link href={`/books`}><button className='btn btn-outline btn-warning'>Back </button></Link>
                 </div>
             </div>
         </div>
     );
 };
 
-export default BookCard;
+export default BookDetailPage;
