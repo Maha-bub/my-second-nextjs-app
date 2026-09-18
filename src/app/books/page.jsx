@@ -1,7 +1,7 @@
 import BookCard from "../components/BookCard";
 
 const getBooks = async () => {
-    const res = await fetch('http://localhost:5000/books')
+    const res = await fetch('http://localhost:5000/books', { next: { revalidate: 10 } })
     if (!res.ok) {
         throw new Error('Failed to load books.')
     }
