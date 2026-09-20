@@ -1,3 +1,4 @@
+'use client'
 import React, { Children, createContext } from 'react';
 
 export const UserContext = createContext(null)
@@ -11,4 +12,4 @@ const UserProvider = ({ Children }) => {
     );
 };
 
-export default ContexProvider;
+export default UserProvider;
