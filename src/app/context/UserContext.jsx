@@ -1,14 +1,14 @@
-'use client'
+'use client';
 import React, { Children, createContext } from 'react';
 
-export const UserContext = createContext(null)
+export const UserContext = createContext(null);
 
 
 const UserProvider = ({ Children }) => {
     return (
-        <UserContext.Provide value={{ name: 'Mahabub', age: 23 }}>
+        <UserContext.Provider value='Mahabub'>
             {Children}
-        </UserContext.Provide>
+        </UserContext.Provider>
     );
 };
 

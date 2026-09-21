@@ -1,16 +1,18 @@
 'use client'
 import Link from "next/link";
-import { UserContext } from "../context/UserContext";
+import { use, useContext } from "react";
 
 const links =
     <>
         <li><Link href={`/`}>Home</Link></li>
         <li><Link href={`/products`}>Products</Link></li>
         <li><Link href={`/books`}>Books</Link></li>
-     </>
+    </>
 const Navbar = () => {
-    const userInfo = use(UserContext)
+
+    const userInfo = use(UserContext);
     console.log(userInfo)
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
