@@ -4,10 +4,10 @@ import React, { Children, createContext } from 'react';
 export const UserContext = createContext(null);
 
 
-const UserProvider = ({ Children }) => {
+const UserProvider = ({ children }) => {
     return (
         <UserContext.Provider value='Mahabub'>
-            {Children}
+            {children}
         </UserContext.Provider>
     );
 };

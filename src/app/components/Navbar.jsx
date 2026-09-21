@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
-import { use, useContext } from "react";
+import { use,  } from "react";
+import { UserContext } from "../context/UserContext";
 
 const links =
     <>
